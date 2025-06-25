@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { UserWarning } from './UserWarning';
 import { getTodos, USER_ID } from './api/todos';
 import { Header } from './components/Header';
@@ -23,7 +23,7 @@ export const App: React.FC = () => {
       .catch(() => setError(Error.UnableToLoadAll));
   }, []);
 
-  const filteredTodos = useCallback(() => {
+  const filteredTodos = useMemo(() => {
     return filterTodos(todos, filterStatus);
   }, [todos, filterStatus]);
 
@@ -44,7 +44,7 @@ export const App: React.FC = () => {
       <div className="todoapp__content">
         <Header />
 
-        <TodoList todos={filteredTodos()} />
+        <TodoList todos={filteredTodos} />
 
         {!!todos.length && (
           <Footer

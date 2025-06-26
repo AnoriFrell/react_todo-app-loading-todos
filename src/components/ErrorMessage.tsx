@@ -32,7 +32,7 @@ export const ErrorMessage: React.FC<Props> = ({ error, close }) => {
         is-danger
         is-light
         has-text-weight-normal
-        ${isVisible ? 'visible' : 'hidden'}
+        ${!error || !isVisible ? 'hidden' : ''}
       `}
     >
       <button

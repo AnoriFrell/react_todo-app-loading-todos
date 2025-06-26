@@ -56,7 +56,7 @@ export const App: React.FC = () => {
         )}
       </div>
 
-      {error && <ErrorMessage error={error} close={() => setError(null)} />}
+      <ErrorMessage error={error} close={() => setError(null)} />
     </div>
   );
 };

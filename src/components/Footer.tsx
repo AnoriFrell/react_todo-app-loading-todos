@@ -28,7 +28,13 @@ export const Footer: React.FC<Props> = ({
             className={classNames('filter__link', {
               selected: currentFilter === status,
             })}
-            data-cy="FilterLinkAll"
+            data-cy={
+              status === Filter.All
+                ? 'FilterLinkAll'
+                : status === Filter.Active
+                  ? 'FilterLinkActive'
+                  : 'FilterLinkCompleted'
+            }
             onClick={() => setFilterStatus(status)}
             key={status}
           >
